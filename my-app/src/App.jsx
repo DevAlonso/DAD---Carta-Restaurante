@@ -7,11 +7,24 @@ import Footer from './components/Footer'
 function App() {
   const [meals, setMeals] = useState([]);
   const [sortOrder, setSortOrder] = useState('Default');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const getMeals = async () => {
-    const response = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood")
-    const data = await response.json();
-    setMeals(data.meals);
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood");
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
+      setMeals(data.meals ?? []);
+    } catch (err) {
+      setMeals([]);
+      setError('No se han podido cargar los platos. Inténtalo de nuevo.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(function () {
@@ -27,8 +40,16 @@ function App() {
 
   return (
     <>
-      <Header sortOrder={sortOrder} setSortOrder={setSortOrder}/>
-      <MenuList meals={mealsWithPrices} sortOrder={sortOrder}/>
+      <Header sortOrder={sortOrder} setSortOrder={setSortOrder} />
+      <main>
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p className="error">{error}</p>
+        ) : (
+          <MenuList meals={mealsWithPrices} sortOrder={sortOrder} />
+        )}
+      </main>
       <Footer />
     </>
   )

@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <a href="#">Volver a la página</a>
+            <a href="#">Volver al inicio</a>
         </footer>
 
     )
