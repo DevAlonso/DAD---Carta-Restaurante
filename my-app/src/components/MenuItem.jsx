@@ -8,7 +8,6 @@ function MenuItem(props){
             <p className='precio'>{props.precio}$</p>
         </div>
     )
-
 }
 
 export default MenuItem
