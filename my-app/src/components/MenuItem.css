@@ -3,7 +3,7 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Importante: evita que el contenido se salga */
+    overflow: hidden;
     padding: 10px;
     min-height: 270px;
     display: flex;
@@ -11,9 +11,9 @@
 }
 
 .cardContainer img {
-    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-    height: auto; /* Mantiene la proporción */
-    display: block; /* Elimina espacio extra debajo de la imagen */
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 4px;
     padding-bottom: 10px;
 }
