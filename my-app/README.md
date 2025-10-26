@@ -1,9 +1,9 @@
 # Restaurante - Carta React
 Es una aplicación web hecha con React y Vite, que muestra una carta de postres de un restaurante. La app conecta con la API de TheMealDB para sacar los datos, y luego enseña los postres con su nombre, imagen y un precio que se genera aleatoriamente cada vez que entras.
 
-![web completa](image.png)
-![carta ordenada asc](image-1.png)
-![carta ordenada desc](image-2.png)
+![web completa](readme-screenshots/image.png)
+![carta ordenada asc](readme-screenshots/image-1.png)
+![carta ordenada desc](readme-screenshots/image-2.png)
 
 # ¿Qué puede hacer la app?
 - Ver una lista de postres (con foto y precio)
