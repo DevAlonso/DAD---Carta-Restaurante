@@ -1,39 +1,78 @@
-# Restaurante - Carta React
-Es una aplicación web hecha con React y Vite, que muestra una carta de postres de un restaurante. La app conecta con la API de TheMealDB para sacar los datos, y luego enseña los postres con su nombre, imagen y un precio que se genera aleatoriamente cada vez que entras.
+# Restaurant App - Ejercicio 2
 
-<img src="readme-screenshots/image.png" width="800"/>
-<img src="readme-screenshots/image-1.png" width="800"/>
-<img src="readme-screenshots/image-2.png" width="800"/>
+Aplicación web de restaurante creada con React y Vite. Esta es la continuación del Ejercicio 1, ahora con sistema de navegación y rutas anidadas.
 
-# ¿Qué puede hacer la app?
-- Ver una lista de postres (con foto y precio)
-- Ordenar los postres por precio (de más barato a caro y al revés) o ver primero los recomendados
-- Carga animada usando react-loading-indicators
-- Diseño responsivo (se adapta a distintos tamaños de pantalla)
+## Nuevas funcionalidades
 
-# ¿Como se ha hecho?
-- Se ha usado Vite para crear el proyecto React.
-- En App.jsx se realiza una petición asíncrona al endpoint:
-https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert
-<img src="readme-screenshots/code-snapshot.png" width="600"/>
-- Los datos se almacenan en el estado local y se generan precios aleatorios entre 8 y 20 $.
-- Además se ha usado el hook useMemo para guardar los precios y no re-renderizar los componentes.
-<img src="readme-screenshots/code-snapshot-1.png" width="600"/>
-- Se han ido pasando los props correspondientes entre componentes.
-<img src="readme-screenshots/code-snapshot-2.png" width="600"/>
-- Los componentes principales son:
-- Header.jsx → título y selector de ordenamiento.
-<img src="readme-screenshots/code-snapshot-3.png" width="600"/>
-- MenuList.jsx → lista de platos según el orden elegido.
-<img src="readme-screenshots/code-snapshot-4.png" width="600"/>
-- MenuItem.jsx → tarjeta de cada postre.
-<img src="readme-screenshots/code-snapshot-5.png" width="600"/>
-- Footer.jsx → enlace para volver al inicio.
-- Se añadió un indicador de carga usando el paquete react-loading-indicators.
-<img src="readme-screenshots/code-snapshot-6.png" width="600"/>
+- Sistema de navegación con React Router
+- Navegación dinámica por categorías
+- Vista detallada de cada postre
+- Layout con navbar siempre visible
+- Múltiples páginas y rutas anidadas
 
-# Dependencias instaladas
-- react y react-dom
-- react-loading-indicators
-- vite
-- @vitejs/plugin-react
+## Tecnologías utilizadas
+
+- React
+- Vite
+- React Router DOM
+- TheMealDB API
+- React Loading Indicators
+
+
+## Rutas implementadas
+
+- `/` - Página de inicio
+- `/categorias` - Lista de postres
+- `/categorias/:id` - Detalle de un postre específico
+- `/todas-categorias` - Todas las categorías disponibles
+- `/categoria/:categoria` - Postres de una categoría
+- `/categoria/:categoria/:id` - Detalle desde categoría
+- `/about` - Información sobre la app
+
+![alt text](./readme-screenshots//Home.png)
+
+## Navegación
+
+La app cuenta con un navbar fijo en la parte superior que permite navegar entre:
+- Inicio
+- Postres
+- Todas las Categorías
+- Acerca de
+
+![alt text](./readme-screenshots/NavBar.png)
+
+## Funcionalidades principales
+
+### Vista de postres
+Lista de postres de la categoría Dessert con opción de ordenar alfabéticamente (A-Z o Z-A).
+
+![alt text](./readme-screenshots/Postres.png)
+
+### Navegación por categorías
+Se pueden explorar todas las categorías disponibles en la API y ver los platos de cada una.
+
+![alt text](./readme-screenshots/Categorias.png)
+
+### Detalle de postre
+Al hacer click en cualquier postre, se muestra su información detallada: imagen, nombre, categoría, origen e instrucciones.
+
+![alt text](./readme-screenshots/Detalle-postre.png)
+
+## Instalación
+
+npm install
+
+
+## Ejecutar el proyecto
+
+npm run dev
+
+## API utilizada
+
+TheMealDB - https://www.themealdb.com/api.php
+
+---
+
+**Autor:** Daniel Alonso
+**Curso:** 2º DAM  
+**Asignatura:** DAD

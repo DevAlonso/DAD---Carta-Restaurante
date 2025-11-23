@@ -1,0 +1,18 @@
+.categoria-detalle {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.categoria-detalle h1 {
+  text-align: center;
+  margin: 20px 0 40px;
+  color: #333;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}

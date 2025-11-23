@@ -8,19 +8,7 @@
 }
 
 body {
-  background-color: grey;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-}
-
-h2 {
-  font-weight: 300;
-  margin-bottom: 10px;
+  background-color: #f0f0f0;
 }
 
 .cards-container {
@@ -36,16 +24,4 @@ h2 {
   display: grid;
   place-items: center;
   height: 100vh;
-}
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  margin-top: 40px;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
 }

@@ -1,53 +1,29 @@
-import { useEffect, useState, useMemo } from 'react'
-import './App.css'
-import Header from './components/Header';
-import MenuList from './components/MenuList';
-import Footer from './components/Footer'
-import { Atom } from 'react-loading-indicators';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './layout/Layout';
+import Home from './pages/Home';
+import Categorias from './pages/Categorias';
+import MealDetail from './pages/MealDetail';
+import TodasCategorias from './pages/TodasCategorias';
+import CategoriaDetalle from './pages/CategoriaDetalle';
+import About from './pages/About';
+import './App.css';
 
 function App() {
-  const [meals, setMeals] = useState([]);
-  const [sortOrder, setSortOrder] = useState('Default');
-  const [loading, setLoading] = useState(true);
-
-  useEffect(function () {
-
-    async function cargarDatos() {
-      setLoading(true);
-
-      const response = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert");
-      const data = await response.json();
-
-      setMeals(data.meals);
-      setLoading(false);
-    }
-
-    cargarDatos();
-
-  }, [])
-
-  const mealsWithPrices = useMemo(function () {
-    return meals.map(function (meal) {
-      return {
-        ...meal,
-        price: Math.floor(Math.random() * (20 - 8 + 1)) + 8
-      };
-    });
-  }, [meals]);
-
-  if (loading) {
-    return <div className='loading-container'><Atom color="#32cd32" size="medium" text="Cargando platos..." textColor="#333" /></div>
-  }
-
   return (
-    <>
-      <Header sortOrder={sortOrder} setSortOrder={setSortOrder} />
-      <main>
-        <MenuList meals={mealsWithPrices} sortOrder={sortOrder} />
-      </main>
-      <Footer />
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="categorias" element={<Categorias />} />
+          <Route path="categorias/:id" element={<MealDetail />} />
+          <Route path="todas-categorias" element={<TodasCategorias />} />
+          <Route path="categoria/:categoria" element={<CategoriaDetalle />} />
+          <Route path="categoria/:categoria/:id" element={<MealDetail />} />
+          <Route path="about" element={<About />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
